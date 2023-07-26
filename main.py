@@ -5,6 +5,7 @@ import random
 
 new_name = ""  # переменная для нового имени
 name_list = []  # итоговый список имен
+num_pairs = 0
 
 
 def enter_press():
@@ -35,7 +36,9 @@ def add_new():
 
 
 def sort_button():
-    global new_name
+    num_pairs = len(name_list) / 2
+    for i in name_list:
+        sort1 = random.sample(name_list, num_pairs)
 
 
 keyboard.add_hotkey("enter", enter_press)
@@ -62,5 +65,6 @@ lbox.place(x=20, y=60)
 btn_sort = ttk.Button(text="Сортировать", command=sort_button)
 btn_sort.pack()
 btn_sort.place(x=55, y=180)
+
 root.mainloop()
 
